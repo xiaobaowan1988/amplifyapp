@@ -1,6 +1,35 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const syncNotes = /* GraphQL */ `
+  query SyncNotes(
+    $filter: ModelNoteFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncNotes(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        description
+        image
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getNote = /* GraphQL */ `
   query GetNote($id: ID!) {
     getNote(id: $id) {
@@ -8,6 +37,9 @@ export const getNote = /* GraphQL */ `
       name
       description
       image
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -25,10 +57,14 @@ export const listNotes = /* GraphQL */ `
         name
         description
         image
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 `;
